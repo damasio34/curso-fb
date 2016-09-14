@@ -1,0 +1,21 @@
+{
+  "name": "curso-fb",
+  "description": "Projeto de teste com firebase",
+  "main": "index.html",
+  "authors": [
+    "Darlan Damasio"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/damasio34/curso-fb",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "firebase": "^3.3.2",
+    "bootstrap": "^3.3.7"
+  }
+}
