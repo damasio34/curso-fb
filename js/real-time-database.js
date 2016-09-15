@@ -23,5 +23,5 @@ firebase.database().ref('usuarios').on('value', function(snapshot){
         var li = document.createElement('li');
         li.appendChild(document.createTextNode(item.val().nome + ': ' + item.val().idade));
         listaDeUsuarios.appendChild(li);
-    })
-})
+    });
+});
