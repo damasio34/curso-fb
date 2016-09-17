@@ -47,6 +47,63 @@ btnAuthEmail.addEventListener('click', function() {
         });
 });
 
+// Autenticar anônimo
+btnAuthAnonymous.addEventListener('click', function() {
+    firebase
+        .auth()
+        .signInAnonymously()
+        .then(function (result) {
+            console.log(result);
+            displayName.innerHTML ='Bem vindo, anônimo';
+            alert('Autenticado anonimamente.');
+        })
+        .catch(function (error) {
+            console.error(error.code);
+            console.error(error.message);
+            alert('Falha ao cadastrar, verifique o erro no console.');
+        });
+});
+
+// Autenticar com github
+btnAuthGithub.addEventListener('click', function() {
+    var provider = new firebase.auth.GithubAuthProvider();
+    signIn(provider);
+});
+
+// Autenticar com google
+btnAuthGoogle.addEventListener('click', function() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    signIn(provider);
+});
+
+// Autenticar com facebook
+btnAuthFacebook.addEventListener('click', function() {
+    var provider = new firebase.auth.FacebookAuthProvider();
+    signIn(provider);
+});
+
+// Autenticar com twitter
+btnAuthTwitter.addEventListener('click', function() {
+    var provider = new firebase.auth.TwitterAuthProvider();
+    signIn(provider);
+});
+
+function signIn(provider){
+    firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then(function (result) {
+            console.log(result);
+            var token = result.credential.accessToken;
+            displayName.innerHTML ='Bem vindo, ' + result.user.displayName;            
+        })
+        .catch(function (error) {
+            console.error(error.code);
+            console.error(error.message);
+            alert('Falha ao cadastrar, verifique o erro no console.');
+        });
+}
+
 // LogOut
 btnlogOut.addEventListener('click', function() {
     firebase
