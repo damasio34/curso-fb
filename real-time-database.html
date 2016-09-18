@@ -10,12 +10,7 @@
         <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
-        <h1>Real time database</h1>        
-
-        <ul id="listaDeUsuarios"></ul>
-        
-        <hr />
-
+        <h1>Real time database</h1>
         <div class="col-md-4">
             <form>
                 <div class="form-group">
@@ -30,7 +25,18 @@
             </form>
 
             <br /><br />
-            <a class="button button-clear" href="index.html">Voltar para página inicial</a>
+            <a class="button button-clear text-center" href="home.html">Voltar para página inicial</a>            
+        </div>
+        
+        <br /><br />
+
+        <div class="col-md-4">
+            <table class="table table-striped" id="listaDeUsuarios">
+                <th>
+                    <td>Nome</td>
+                    <td>Idade</td>
+                </th>
+            </table>
         </div>
                 
         <script src="bower_components/jquery/dist/jquery.js"></script>

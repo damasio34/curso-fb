@@ -1,3 +1,5 @@
+'use strict'
+
 // Inputs
 var txtEmail = document.getElementById('txtEmail');
 var txtSenha = document.getElementById('txtSenha');
@@ -10,7 +12,6 @@ var btnAuthFacebook = document.getElementById('btnAuthFacebook');
 var btnAuthTwitter = document.getElementById('btnAuthTwitter');
 var btnAuthGoogle = document.getElementById('btnAuthGoogle');
 var btnAuthAnonymous = document.getElementById('btnAuthAnonymous');
-var btnlogOut = document.getElementById('btnlogOut');
 
 // Display
 var displayName = document.getElementById('displayName');
@@ -22,6 +23,7 @@ btnAddUsuario.addEventListener('click', function() {
         .createUserWithEmailAndPassword(txtEmail.value, txtSenha.value)
         .then(function () {
             alert('Bem vindo, ' + txtEmail.value);
+            window.location = 'home.html';
         })
         .catch(function (error) {
             console.error(error.code);
@@ -39,6 +41,7 @@ btnAuthEmail.addEventListener('click', function() {
             console.log(result);
             displayName.innerHTML ='Bem vindo, ' + txtEmail.value;
             alert('Autenticado ' + txtEmail.value);
+            window.location = 'home.html';
         })
         .catch(function (error) {
             console.error(error.code);
@@ -56,6 +59,7 @@ btnAuthAnonymous.addEventListener('click', function() {
             console.log(result);
             displayName.innerHTML ='Bem vindo, anônimo';
             alert('Autenticado anonimamente.');
+            window.location = 'home.html';
         })
         .catch(function (error) {
             console.error(error.code);
@@ -96,6 +100,7 @@ function signIn(provider){
             console.log(result);
             var token = result.credential.accessToken;
             displayName.innerHTML ='Bem vindo, ' + result.user.displayName;            
+            window.location = 'home.html'; 
         })
         .catch(function (error) {
             console.error(error.code);
@@ -103,19 +108,3 @@ function signIn(provider){
             alert('Falha ao cadastrar, verifique o erro no console.');
         });
 }
-
-// LogOut
-btnlogOut.addEventListener('click', function() {
-    firebase
-        .auth()
-        .signOut()
-        .then(function () {            
-            displayName.innerHTML ='Você não está autenticado.';
-            alert('Você se deslogou.');
-        })
-        .catch(function (error) {
-            console.error(error.code);
-            console.error(error.message);
-            alert('Falha ao cadastrar, verifique o erro no console.');
-        });
-});
