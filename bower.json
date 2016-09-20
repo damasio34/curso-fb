@@ -1,12 +1,12 @@
 {
-  "name": "curso-fb",
+  "name": "getstart-firebase",
   "description": "Projeto de teste com firebase",
   "main": "index.html",
   "authors": [
     "Darlan Damasio"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/damasio34/curso-fb",
+  "homepage": "https://github.com/damasio34/getstart-firebase",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -15,8 +15,8 @@
     "tests"
   ],
   "dependencies": {
-    "firebase": "^3.3.2",
-    "bootstrap": "^3.3.7",
-    "font-awesome": "fontawesome#^4.6.3"
+    "firebase": "#3.3.2",
+    "bootstrap": "#3.3.7",
+    "font-awesome": "fontawesome#4.6.3"
   }
 }
