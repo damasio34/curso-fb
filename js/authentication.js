@@ -10,13 +10,13 @@
     var btnAuthEmail =  document.getElementById('btnAuthEmail');
     var btnAddUsuario =  document.getElementById('btnAddUsuario');
     var btnAuthGithub = document.getElementById('btnAuthGithub');
-    var btnAuthFacebook = document.getElementById('btnAuthFacebook');
-    var btnAuthTwitter = document.getElementById('btnAuthTwitter');
+    // var btnAuthFacebook = document.getElementById('btnAuthFacebook');
+    // var btnAuthTwitter = document.getElementById('btnAuthTwitter');
     var btnAuthGoogle = document.getElementById('btnAuthGoogle');
     var btnAuthAnonymous = document.getElementById('btnAuthAnonymous');
 
     // Display
-    var displayName = document.getElementById('displayName');
+    // var displayName = document.getElementById('displayName');
 
     // Criar novo usuário
     btnAddUsuario.addEventListener('click', function() {
@@ -41,7 +41,7 @@
             .signInWithEmailAndPassword(txtEmail.value, txtSenha.value)
             .then(function (result) {
                 console.log(result);
-                displayName.innerHTML ='Bem vindo, ' + txtEmail.value;
+                // displayName.innerHTML ='Bem vindo, ' + txtEmail.value;
                 alert('Autenticado ' + txtEmail.value);
                 window.location = 'home.html';
             })
@@ -59,7 +59,7 @@
             .signInAnonymously()
             .then(function (result) {
                 console.log(result);
-                displayName.innerHTML ='Bem vindo, anônimo';
+                // displayName.innerHTML ='Bem vindo, anônimo';
                 alert('Autenticado anonimamente.');
                 window.location = 'home.html';
             })
@@ -82,17 +82,17 @@
         signIn(provider);
     });
 
-    // Autenticar com facebook
-    btnAuthFacebook.addEventListener('click', function() {
-        var provider = new firebase.auth.FacebookAuthProvider();
-        signIn(provider);
-    });
+    // // Autenticar com facebook
+    // btnAuthFacebook.addEventListener('click', function() {
+    //     var provider = new firebase.auth.FacebookAuthProvider();
+    //     signIn(provider);
+    // });
 
-    // Autenticar com twitter
-    btnAuthTwitter.addEventListener('click', function() {
-        var provider = new firebase.auth.TwitterAuthProvider();
-        signIn(provider);
-    });
+    // // Autenticar com twitter
+    // btnAuthTwitter.addEventListener('click', function() {
+    //     var provider = new firebase.auth.TwitterAuthProvider();
+    //     signIn(provider);
+    // });
 
     function signIn(provider){
         firebase
@@ -101,7 +101,7 @@
             .then(function (result) {
                 console.log(result);
                 var token = result.credential.accessToken;
-                displayName.innerHTML ='Bem vindo, ' + result.user.displayName;            
+                // displayName.innerHTML ='Bem vindo, ' + result.user.displayName;            
                 window.location = 'home.html'; 
             })
             .catch(function (error) {
